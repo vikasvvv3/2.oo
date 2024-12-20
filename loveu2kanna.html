@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love U 2 Kanna</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff007f;
+      animation: titleAnimation 3s ease-out;
+    }
+
+    /* Cracker Blast Effect */
+    @keyframes crackerBlast {
+      0% { transform: scale(0); opacity: 1; }
+      50% { transform: scale(2); opacity: 0.5; }
+      100% { transform: scale(0); opacity: 0; }
+    }
+
+    .cracker {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ffb700;
+      border-radius: 50%;
+      animation: crackerBlast 1s infinite;
+    }
+
+    /* Heart Animation */
+    @keyframes heartAnimation {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .heart {
+      font-size: 40px;
+      color: red;
+      animation: heartAnimation 1.5s infinite ease-in-out;
+    }
+
+    /* Animation for Title */
+    @keyframes titleAnimation {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>LOVE U 2 KANNA ❤️</h1>
+  
+  <!-- Cracker and Heart Effects -->
+  <div id="hearts"></div>
+
+  <script>
+    // Create cracker blast effect
+    window.addEventListener('load', function() {
+      for (let i = 0; i < 30; i++) {
+        let cracker = document.createElement('div');
+        cracker.classList.add('cracker');
+        cracker.style.left = `${Math.random() * window.innerWidth}px`;
+        cracker.style.top = `${Math.random() * window.innerHeight}px`;
+        document.body.appendChild(cracker);
+      }
+    });
+
+    // Create animated hearts
+    function displayHearts() {
+      const heartsContainer = document.getElementById('hearts');
+      for (let i = 0; i < 10; i++) {
+        let heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.position = 'absolute';
+        heart.style.left = `${Math.random() * window.innerWidth}px`;
+        heart.style.top = `${Math.random() * window.innerHeight}px`;
+        heart.style.animationDuration = `${Math.random() * 1.5 + 2}s`;
+        heartsContainer.appendChild(heart);
+      }
+    }
+
+    // Start heart animation
+    displayHearts();
+  </script>
+
+</body>
+</html>
